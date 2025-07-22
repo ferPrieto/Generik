@@ -13,45 +13,6 @@ This project serves as an **educational resource** and **generic serialization t
 - **Comparative Analysis**: Enable developers to understand when to choose Gson vs Kotlinx Serialization vs custom generic solutions
 - **Production-Ready Patterns**: Demonstrate scalable approaches to handling enterprise-level data complexity with graceful error handling and robust testing
 
-## 🏗️ Project Structure
-
-```
-src/main/kotlin/com/fprieto/generik/
-├── model/                       # Complex data models
-│   ├── User.kt                 # Basic user information
-│   ├── Address.kt              # Address with street, city, zip, country
-│   ├── Contact.kt              # Contact info with social media Map
-│   ├── Project.kt              # Projects with enums, lists, and maps
-│   ├── Employee.kt             # Employee with nested objects and lists
-│   ├── Company.kt              # Company with employees and departments
-│   ├── Organization.kt         # Organization structure
-│   ├── Team.kt                 # Team management with complex roles
-│   ├── Role.kt                 # Permission-based role system
-│   ├── Permission.kt           # Granular permission model
-│   └── Enterprise.kt           # Ultra-complex enterprise structure
-├── demo/
-│   └── serialization/          # Serialization demo classes
-│       ├── GsonSerializationDemo.kt         # Simple Gson demo
-│       ├── KotlinSerializationDemo.kt       # Simple Kotlinx demo
-│       ├── ComplexGsonDemo.kt               # Advanced Gson demonstrations
-│       ├── ComplexKotlinxDemo.kt            # Advanced Kotlinx demonstrations
-│       ├── AdvancedComplexGsonDemo.kt       # Ultra-complex Gson serialization
-│       └── AdvancedComplexKotlinxDemo.kt    # Ultra-complex Kotlinx serialization
-├── extensions/
-│   ├── GsonExtensions.kt       # Gson extension functions (.toJson(), .fromJson())
-│   └── KotlinxSerializer.kt    # Kotlinx serialization utilities
-└── serializer/
-    └── GenericSerializer.kt    # Custom reflection-based serializer
-
-src/test/kotlin/com/fprieto/generik/demo/serialization/
-├── GsonSerializationDemoTest.kt
-├── KotlinSerializationDemoTest.kt
-├── ComplexGsonDemoTest.kt
-├── ComplexKotlinxDemoTest.kt
-├── AdvancedComplexGsonDemoTest.kt
-└── AdvancedComplexKotlinxDemoTest.kt
-```
-
 ## 🚀 Complex Models Features
 
 ### 📊 Data Types Supported
@@ -87,7 +48,6 @@ src/test/kotlin/com/fprieto/generik/demo/serialization/
 - **AdvancedComplexGsonDemo** ✅ + AdvancedComplexGsonDemoTest
   - Enterprise-level serialization
   - Ultra-complex nested structures
-  - Full roundtrip testing
 - **AdvancedComplexKotlinxDemo** ⚠️ + AdvancedComplexKotlinxDemoTest
   - Enterprise with GenericSerializer
   - Educational limitations demonstration
@@ -103,6 +63,28 @@ src/test/kotlin/com/fprieto/generik/demo/serialization/
 | AdvancedComplexGsonDemo | Enterprise | Gson | ✅ Full | ✅ Complete |
 | AdvancedComplexKotlinxDemo | Enterprise | GenericSerializer | ⚠️ Limited | ✅ Error Handling |
 
+## 🚀 Future Improvements
+
+### 🔧 Improving GenericSerializer Limitations
+
+The project currently demonstrates the limitations of reflection-based serialization in modern Java environments. Future improvements could include:
+
+- **Enhanced Reflection Access**: Investigate workarounds for Java module system restrictions
+- **Alternative Serialization Strategies**: Implement code generation or annotation processing approaches
+- **Hybrid Solutions**: Combine GenericSerializer with built-in Kotlinx serialization for complex objects
+- **Performance Optimization**: Optimize reflection usage and caching strategies
+- **Error Recovery**: Implement fallback mechanisms when reflection fails on complex nested structures
+- **Documentation Enhancement**: Provide more detailed guidance on when to use each serialization approach
+- **Testing Coverage**: Expand test scenarios to cover more edge cases and complex object combinations
+
+These improvements would make the GenericSerializer more robust while maintaining its educational value in demonstrating the challenges and solutions in generic serialization.
+
 ## 📄 License
 
 MIT License
+
+Copyright (c) 2025 Fernando Prieto Moyano
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+The MIT License is a permissive license that allows for commercial use, modification, distribution, and private use. This project is open-source and welcomes contributions from the community.
