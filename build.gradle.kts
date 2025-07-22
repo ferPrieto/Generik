@@ -1,9 +1,10 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
+    application
 }
 
-group = "com.fprieto"
+group = "com.fprieto.generik"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -29,10 +30,10 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
     kotlinOptions {
         jvmTarget = "11"
     }
-}
+} 
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(11))
     }
-}
+} 

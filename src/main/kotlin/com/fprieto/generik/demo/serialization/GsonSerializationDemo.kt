@@ -1,8 +1,8 @@
-package demo
+package com.fprieto.generik.demo.serialization
 
-import demo.model.User
-import demo.utils.fromJson
-import demo.utils.toJson
+import com.fprieto.generik.model.User
+import com.fprieto.generik.extensions.fromJson
+import com.fprieto.generik.extensions.toJson
 
 class GsonSerializationDemo {
     fun toJson(user: User): String {

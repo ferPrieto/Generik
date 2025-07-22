@@ -1,4 +1,4 @@
-package serializer
+package com.fprieto.generik.serializer
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
@@ -94,10 +94,15 @@ class GenericSerializer<T : Any>(
                             is Enum<*> -> JsonPrimitive(rawValue.name)
                             null -> JsonNull
                             else -> {
-                                // Handle nested data class with a recursive serializer
-                                @Suppress("UNCHECKED_CAST")
-                                val serializer = GenericSerializer(rawValue::class as KClass<Any>) as KSerializer<Any>
-                                jsonEncoder.json.encodeToJsonElement(serializer, rawValue)
+                                // Handle enums and nested data classes
+                                if (rawValue::class.java.isEnum) {
+                                    JsonPrimitive((rawValue as Enum<*>).name)
+                                } else {
+                                    // Handle nested data class with a recursive serializer
+                                    @Suppress("UNCHECKED_CAST")
+                                    val serializer = GenericSerializer(rawValue::class as KClass<Any>) as KSerializer<Any>
+                                    jsonEncoder.json.encodeToJsonElement(serializer, rawValue)
+                                }
                             }
                         }
 
@@ -143,12 +148,22 @@ class GenericSerializer<T : Any>(
                     Short::class -> jsonValue.jsonPrimitive.int.toShort()
                     Byte::class -> jsonValue.jsonPrimitive.int.toByte()
                     else -> {
-                        // Deserialize nested class recursively
+                        // Handle enums and nested classes
                         val nestedClass =
                             classifier as? KClass<*>
                                 ?: throw IllegalArgumentException("Unsupported type ${param.type}")
-                        val serializer = GenericSerializer(nestedClass as KClass<Any>)
-                        jsonDecoder.json.decodeFromJsonElement(serializer, jsonValue)
+                        
+                        if (nestedClass.java.isEnum) {
+                            // Handle enum deserialization
+                            val enumName = jsonValue.jsonPrimitive.content
+                            nestedClass.java.enumConstants.find { 
+                                (it as Enum<*>).name == enumName 
+                            } ?: throw IllegalArgumentException("Unknown enum value: $enumName")
+                        } else {
+                            // Deserialize nested class recursively
+                            val serializer = GenericSerializer(nestedClass as KClass<Any>)
+                            jsonDecoder.json.decodeFromJsonElement(serializer, jsonValue)
+                        }
                     }
                 }
             }

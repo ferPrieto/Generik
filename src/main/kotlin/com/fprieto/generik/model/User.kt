@@ -1,4 +1,4 @@
-package demo.model
+package com.fprieto.generik.model
 
 import kotlinx.serialization.Serializable
 

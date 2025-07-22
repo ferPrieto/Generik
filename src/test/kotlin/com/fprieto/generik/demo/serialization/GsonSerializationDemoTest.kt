@@ -1,12 +1,13 @@
-package demo
+package com.fprieto.generik.demo.serialization
 
-import demo.model.User
+import com.fprieto.generik.model.User
+import com.fprieto.generik.demo.serialization.GsonSerializationDemo
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class KotlinSerializationDemoTest {
+class GsonSerializationDemoTest {
 
-    private val sut = KotlinSerializationDemo()
+    private val sut = GsonSerializationDemo()
 
     @Test
     fun `Given User when toJson then expected result`() {
