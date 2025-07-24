@@ -8,10 +8,10 @@ Generik provides a powerful **GenericSerializer** class that eliminates the need
 
 Generik is both an educational playground and a powerful serialization toolkit built to:
 
-🔍 Showcase Generic Serialization: Compare real-world strategies using Gson, Kotlinx Serialization, and custom solutions
-🧠 Teach Through Practice: Dive into complex data models with nested objects, collections, enums, and recursive types
-⚙️ Harness Kotlin Reflection: Experiment with reflection-based generic serializers — and understand their power and pitfalls
-⚖️ Compare & Choose Wisely: Gain insight into when to use Gson, Kotlinx, or roll your own with custom generics
+- 🔍 **Showcase Generic Serialization**: Compare real-world strategies using Gson, Kotlinx Serialization, and custom solutions  
+- 🧠 **Teach Through Practice**: Dive into complex data models with nested objects, collections, enums, and recursive types  
+- ⚙️ **Harness Kotlin Reflection**: Experiment with reflection-based generic serializers — and understand their power and pitfalls  
+- ⚖️ **Compare & Choose Wisely**: Gain insight into when to use Gson, Kotlinx, or roll your own with custom generics
 
 ### Prerequisites
 - Java 21+ (configured with JVM Toolchain)
