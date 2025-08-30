@@ -10,6 +10,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/case-study" />
+            <option value="$PROJECT_DIR$/case-study/benchmark" />
+            <option value="$PROJECT_DIR$/case-study/scenario1_gson" />
+            <option value="$PROJECT_DIR$/case-study/scenario2_kotlinx" />
+            <option value="$PROJECT_DIR$/case-study/scenario3_generik" />
+            <option value="$PROJECT_DIR$/case-study/shared-models" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/serialization-demo" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
